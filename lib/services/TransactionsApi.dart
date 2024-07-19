@@ -13,7 +13,7 @@ import '../const/backend_const/backend_const.dart';
 class ApiTransactionsController extends GetxController {
   static final ApiURL apiUrl = ApiURL();
 
-  var jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTNiMjE1Y2FjZWQ2ZDA4YzIzMTM5OSIsImlhdCI6MTcyMTE0MTU5NywiZXhwIjoxNzIxMjI3OTk3fQ.dymoWct_IZww_SCblrQPADeUPCTAywTSCHmFkgP33oQ'.obs;
+  var jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTNiMjE1Y2FjZWQ2ZDA4YzIzMTM5OSIsImlhdCI6MTcyMTQxMTI3MSwiZXhwIjoxNzIxNDk3NjcxfQ.oolU8dIJyaN1J1MTxjCTbHMMmar_OfOFq8RWdsqX87k'.obs;
   var isLoading = false.obs;
   var transactionList = <TransactionModel>[].obs;
 
@@ -21,7 +21,7 @@ class ApiTransactionsController extends GetxController {
   isLoading(true);
   String url = apiUrl.baseUrl + apiUrl.eNPtransactions;
   final headers = {
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTNiMjE1Y2FjZWQ2ZDA4YzIzMTM5OSIsImlhdCI6MTcyMTE0MTU5NywiZXhwIjoxNzIxMjI3OTk3fQ.dymoWct_IZww_SCblrQPADeUPCTAywTSCHmFkgP33oQ',
+    'Authorization': jwtToken.value,
     'Content-Type': 'application/json',
   };
 

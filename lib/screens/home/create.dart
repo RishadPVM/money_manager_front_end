@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:maney_manager/services/authApi.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -8,6 +10,8 @@ class CreatePage extends StatefulWidget {
 }
 
 class _CreatePageState extends State<CreatePage> {
+
+  var authContoller = Get.put(Authapi());
 
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
@@ -40,19 +44,20 @@ class _CreatePageState extends State<CreatePage> {
             ),
            const SizedBox(height: 32),
             ElevatedButton(
-              onPressed: () {
-                // Perform registration logic here
-                String name = nameController.text;
-                String phoneNumber = phoneNumberController.text;
-                String age = ageController.text ; //int.tryParse(ageController.text) ?? 0;
+              onPressed: () async {
+               await authContoller.login();
+                // // Perform registration logic here
+                // String name = nameController.text;
+                // String phoneNumber = phoneNumberController.text;
+                // String age = ageController.text ; //int.tryParse(ageController.text) ?? 0;
 
-                // You can now use the collected data as needed
-                 var pdata = {
+                // // You can now use the collected data as needed
+                //  var pdata = {
                       
-                      "pname": name,
-                      "phoneNumber" : phoneNumber,
-                      "age": age
-                   };
+                //       "pname": name,
+                //       "phoneNumber" : phoneNumber,
+                //       "age": age
+                //    };
                   //  Api.addProduct(pdata);
               },
               child: const Text('Register'),
